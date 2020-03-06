@@ -28,6 +28,7 @@ print("".join(chalst).replace(" ",""))
 '''
 
 # 判断list两个添加值得操作的时间复杂度
+'''
 from timeit import Timer
 
 for i in range(100000,1000001,100000):
@@ -36,4 +37,4 @@ for i in range(100000,1000001,100000):
     t2 = Timer('lst.append(None)','from __main__ import lst')
     res1, res2 = t1.timeit(number=1000), t2.timeit(number=1000)
     print('%.7f' %res1, '%.7f' %res2)
-
+'''
