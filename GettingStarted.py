@@ -39,3 +39,44 @@ print('Hello World!'.replace('l','L')) # 替换字符串的子串
 # 上面的许多操作都反映了字符串序列的特征
 '''
 
+# 数据类型：数据容器列表与元组
+'''
+lst1 = [2, 1, 2, 3]
+print(list(reversed(lst1)), lst1)  # reversed与.reverse()不同，会生成一个新的列表，而原列表不变，reverse则会把作用的列表倒序
+print(lst1.count(2))  # 根据元素的值进行计数
+lst1.remove(2)
+print(lst1)  # remove会移除列表种第一次出现的该元素
+lst2 = [0, 0, 0]
+print(lst1+lst2, lst1, lst2) # 加法合并列表，会生成一个新的列表，参与合并的两个列表不变
+lst1.extend(lst2)
+print(lst1, lst2) # extend合并列表会改变被加长的列表，另一个加上去的列表不变
+print(lst2 * 3) # 乘法合并列表
+lst2.clear() # 清空列表
+print(lst2) 
+# 元组的许多操作与列表类似，唯一的区别是元组是不可变容器类型，一些重组、合并、赋值对于元组来说是不可行的
+'''
+
+# 数据类型：字典
+'''
+dic1 = dict.fromkeys([1,2,1],10) # 批量向字典种添加数据项，注意字典中不会有重复的key，同时key应该是不可变类型
+dic1[3] = 10 # 通过创建新的键值对并赋值的方法更新字典
+print(dic1)
+dic2 = {4:10, 5:11}
+dic1.update(dic2) # 合并两个字典并更新（如果键有重复，则其值会更新）
+print(dic1)
+print(dic1.pop(5)) # 弹出指定key的数据项，返回数据值
+print(dic1)
+print(dic1.popitem()) # 弹出并返回任意一个数据项（似乎会返回字典中的最后一个键值对，但实际上不存在顺序关系）
+print(3 in dic1, 10 in dic1) # 单纯的in字典是对key进行判断，如果要对数据值进行判断则需要使用in字典.values()
+print(10 in dic1.values())
+'''
+
+# 数据类型：集合（不可变key的无需组合）
+'''
+set1 = set('123') # 创建集合
+set2 = set('234')
+print(set1|set2, set1&set2, set1-set2) # 集合的运算：并交差
+print(set1.isdisjoint(set2), set1&set2 == set()) # 判断交集是否为空。返回False表明交集不为空
+# 生成集合可以快速去重；判断一个元素是否处于一个集合中的性能很高，比列表的判断更快
+'''
+
