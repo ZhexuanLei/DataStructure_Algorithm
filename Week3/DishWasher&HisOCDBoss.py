@@ -3,7 +3,7 @@ class Stack:
         self.items = []
 
     def isEmpty(self):
-        return(self.items == [])
+        return (self.items == [])
 
     def push(self, items):
         self.items.append(items)
@@ -17,13 +17,14 @@ class Stack:
     def size(self):
         return len(self.items)
 
+
 def DishJudge(seq):
     s = Stack()
     for i in range(seq[0]):
         s.push(i)
-    for i in range(1,10):
-        if seq[i] > seq[i-1]:
-            for j in range(seq[i-1]+1,seq[i]):
+    for i in range(1, 10):
+        if seq[i] > seq[i - 1]:
+            for j in range(seq[i - 1] + 1, seq[i]):
                 s.push(j)
         elif seq[i] == s.peek():
             s.pop()
@@ -31,7 +32,6 @@ def DishJudge(seq):
             return 'No'
     return 'Yes'
 
-inputseq = list(map(int,input()))
+
+inputseq = list(map(int, input()))
 print(DishJudge(inputseq))
-
-
