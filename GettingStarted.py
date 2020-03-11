@@ -80,3 +80,60 @@ print(set1.isdisjoint(set2), set1&set2 == set()) # 判断交集是否为空。�
 # 生成集合可以快速去重；判断一个元素是否处于一个集合中的性能很高，比列表的判断更快
 '''
 
+# 扩展模块
+'''
+import time, datetime # 时间、日期模块
+today = datetime.date.today()
+print(today,datetime.datetime.now(),datetime.datetime.now().isoformat())
+print(today.timetuple()) # 结构化的时间
+print(time.mktime(today.timetuple())) # 从1970年1月1日0时开始计算的时间戳
+yesterday = today - datetime.timedelta(days=1)
+onehourago = datetime.datetime.now() - datetime.timedelta(hours=1)
+print(yesterday, onehourago)
+'''
+'''
+import calendar
+calendar.prmonth(2020,3)
+calendar.prcal(2020) # 两个用来显示日历的函数
+print(calendar.monthcalendar(2020,3)) # 输出嵌套的列表
+print(calendar.isleap(2020)) # 判断闰年
+print(calendar.monthrange(2020,3)) # 返回一个二元组，分别表示该月起始的星期数，第二个表示天数
+'''
+'''
+import time
+
+print(time.time())  # 获取当前的时间戳
+print(time.asctime(), time.ctime(), time.asctime((2020,3,11,14,29,30,0,0,0))) # 获取当前的时间，把元组转化成时间的类型
+t1 = time.time()
+time.sleep(1) # 让程序暂停运行一段时间
+t2 = time.time()
+print(t2-t1)
+'''
+'''
+# math, cmath, decimal模块
+from decimal import Decimal
+print(0.1+0.1+0.1-0.3, Decimal('0.1')+Decimal('0.1')+Decimal('0.1')-Decimal('0.3')) # Decimal生成精确精度的小数
+'''
+'''
+# random模块
+import random
+
+print(random.random())  # 生成0-1间的随机浮点数
+print(random.uniform(1, 10))  # 生成指定范围之间的随机浮点数
+print(random.randint(1, 10))  # 生成指定范围内的随机整数
+print(random.randrange(2, 11, 2))  # 生成指定集合内的随机数
+print(random.getrandbits(10))  # 生成指定位数的随机二进制数（输出为十进制）
+lst = ['a', 'b', 'c', 'd', 'e']
+print(random.choice(lst)) # 从指定序列中随机选出一个元素
+print(random.sample(lst,2)) # 从指定序列中随机选取指定个数的元素
+random.shuffle(lst) # 将指定序列随机排序
+print(lst)
+'''
+'''
+# 数据持久化模块
+import pickle, shelve  # pickle将python对象格式化便于储存, shelve进行储存
+# shelve通过key的方式建立一个数据库，使得程序可以对保存的python对象进行标准化的访问和操作
+d = shelve.open('testfile') # 创建一个shelve对象，可以将其他的对象存储在该shelve对象中
+d['num'] = 0 # 写入对象，键值对的操作与字典类似，赋值、读取、删除等
+d.close() # 关闭shelve文件
+'''
