@@ -111,7 +111,7 @@ def calculate(s) -> float:
         elif op == ')':
             opttop = OpStack.pop()
             s1, s2 = Stack(), Stack()
-            s1.push(OpStack.pop())
+
             while opttop != '(':
                 s1.push(opttop)
                 opttop = OpStack.pop()
@@ -120,6 +120,7 @@ def calculate(s) -> float:
             OpStack.push(getvalue(s2))
         else:
             OpStack.push(op)
+        print(OpStack)
     return getvalue(OpStack)
 
 
@@ -128,3 +129,4 @@ print("======== 1-calculate ========")
 print(calculate("( 2 + 3 ) * 6 + 4 / 2"))
 print(calculate("2 ^ 3 + 4 * 5 - 16 / 2"))
 print(calculate("( 5 + 1 ) * 2 / 3 - 3 ^ ( 2 + 8 / 4 ) / 9 + 6"))
+

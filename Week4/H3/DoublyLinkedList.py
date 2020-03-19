@@ -127,7 +127,15 @@ class DoublyLinkedList():
         while now != self.tail:
             lst.append(now.getData())
             now = now.getNext()
-        return lst.__getitem__(item)
+        Q = DoublyLinkedList()
+        if isinstance(item, slice):
+            lst2 = lst.__getitem__(item)
+            for i in range(len(lst2)):
+                Q.append(lst2[i])
+            return Q
+        else:
+            Q.add(lst.__getitem__(item))
+            return Q
 
     def __repr__(self):
         lst = []
