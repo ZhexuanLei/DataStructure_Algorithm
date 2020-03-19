@@ -134,8 +134,7 @@ class DoublyLinkedList():
                 Q.append(lst2[i])
             return Q
         else:
-            Q.add(lst.__getitem__(item))
-            return Q
+            return lst.__getitem__(item) # 取单个值输出值即可
 
     def __repr__(self):
         lst = []
