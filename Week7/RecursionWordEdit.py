@@ -7,6 +7,7 @@
 # 参数：两个字符串，即源单词original与目标单词target，以及不同操作对应的分值，即一个字典
 # 返回值：一个整数与一个列表，最低的分数与操作过程，示例见检验
 ## 编辑操作过程不一定唯一，给出一种满足条件的操作过程即可
+
 def RCWordEdit(original, target, oplist):
     score = 0
     operations = []
