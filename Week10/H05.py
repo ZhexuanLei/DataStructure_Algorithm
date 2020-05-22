@@ -181,13 +181,15 @@ class mydict:
                 currentNode.leftChild = TreeNode(key, value, parent=currentNode)
                 self.size += 1
                 self.updateBalance(currentNode.leftChild)
-        else:
+        elif hash(key) > currentNode.key:
             if currentNode.getRight():
                 self.put(key, value, currentNode.rightChild)
             else:
                 currentNode.rightChild = TreeNode(key, value, parent=currentNode)
                 self.size += 1
                 self.updateBalance(currentNode.rightChild)
+        else:
+            currentNode.payload = value
 
     def updateBalance(self, node):
         if node.balanceFactor > 1 or node.balanceFactor < -1:
@@ -362,21 +364,27 @@ class mydict:
         return iter([])
 
     def __str__(self):  # 输出字符串形式，参照内置dict类型，输出按照AVL树中序遍历次序
-        lstr = ', '.join([f"{repr(key)}:{repr(self[key])}" for key in self])
+        lstr = ', '.join([f"{repr(key)}: {repr(self[key])}" for key in self])
         return f"{{{lstr}}}"
 
     __repr__ = __str__
 
     def keys(self):  # 返回所有的key，类型是列表，按照AVL树中序遍历次序
         klst = []
-        for name in self.root:
-            klst.append(name)
+        if not self.root:
+            return []
+        else:
+            for name in self.root:
+                klst.append(name)
         return klst
 
     def values(self):  # 返回所有的value，类型是列表，按照AVL树中序遍历次序
         vlst = []
-        for name in self.root:
-            vlst.append(self[name])
+        if not self.root:
+            return []
+        else:
+            for name in self.root:
+                vlst.append(self[name])
         return vlst
 
 

@@ -205,3 +205,5 @@ class BianrySearcTree():
             succ.sliceOut()  # 将该后继节点提出来
             currentNode.key = succ.key
             currentNode.payload = succ.payload
+
+
