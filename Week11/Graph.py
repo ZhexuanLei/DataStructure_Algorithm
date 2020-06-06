@@ -44,7 +44,7 @@ class Graph:  # 基于邻接列表的图模型
             self.addVertex(f)
         if t not in self.vertList:
             self.addVertex(t)
-        self.vertList[f].addNeighbor(self.vertList[t], cost)
+        self.vertList[f].addCollaborator(self.vertList[t], cost)
 
     def getVertices(self):
         return self.vertList.keys()
